@@ -39,3 +39,4 @@ echo -e "${green}No console. or debugger references found!${no_color}\n"
 echo -e "${green}Git pre-commit hook was successful!${no_color}\n"
 exit 0;
 
+
