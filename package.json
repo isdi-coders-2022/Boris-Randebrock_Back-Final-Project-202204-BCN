@@ -1,5 +1,5 @@
 {
-  "name": "medicapp-back",
+  "name": "back-its-only-rock-n-roll",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -42,9 +42,9 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/index.js",
-      "!src/server/startServer.js",
+      "!src/server/initializeServer.js",
       "!src/server/index.js",
-      "!src/database/index.js",
+      "!src/db/index.js",
       "!.eslintrc.js"
     ]
   }
