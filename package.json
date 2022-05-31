@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest",
     "test-coverage": "jest --coverage watchAll=false",
     "start": "node .",
     "start-dev": "nodemon . -q",
