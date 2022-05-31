@@ -20,10 +20,10 @@ describe("Given the errors function", () => {
       expect(res.json).toHaveBeenCalledWith(expectedError);
     });
   });
-  describe("When invoked with the statusCode 409 and the message 'Yeehaa'", () => {
-    test("Then it should call the res status 409 and the message 'Yeehaa'", () => {
+  describe("When invoked with the statusCode 409 and the message 'Conflict Error'", () => {
+    test("Then it should call the res status 409 and the message 'Conflict Error'", () => {
       const recievedError = new Error();
-      recievedError.customMessage = "Yeehaa";
+      recievedError.customMessage = "Conflict Error";
       recievedError.statusCode = 409;
       const res = {
         status: jest.fn().mockReturnThis(),
@@ -32,7 +32,7 @@ describe("Given the errors function", () => {
       const expectedStatusCode = 409;
       const expectedError = {
         error: true,
-        message: "Yeehaa",
+        message: "Conflict Error",
       };
 
       generalError(recievedError, null, res, null);
