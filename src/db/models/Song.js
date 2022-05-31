@@ -7,7 +7,9 @@ const SongSchema = new Schema({
   },
   youtubeVideo: {
     type: String,
-    require: true,
+  },
+  songTitle: {
+    type: String,
   },
   releaseDate: {
     type: Date,
@@ -15,29 +17,31 @@ const SongSchema = new Schema({
   description: {
     type: String,
   },
-  lyrics: {
-    type: String,
-  },
-  guitarTabs: {
-    type: String,
-  },
-  guitarChords: {
-    type: String,
-  },
-  bassTabs: {
-    type: String,
-  },
-  piano: {
-    type: String,
-  },
-  drums: {
-    type: String,
-  },
-  saxophone: {
-    type: String,
-  },
-  trumpets: {
-    type: String,
+  documents: {
+    lyrics: {
+      type: String,
+    },
+    guitarTabs: {
+      type: String,
+    },
+    guitarChords: {
+      type: String,
+    },
+    bassTabs: {
+      type: String,
+    },
+    piano: {
+      type: String,
+    },
+    drums: {
+      type: String,
+    },
+    saxophone: {
+      type: String,
+    },
+    trumpets: {
+      type: String,
+    },
   },
 });
 
