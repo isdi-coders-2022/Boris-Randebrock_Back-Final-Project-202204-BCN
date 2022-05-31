@@ -1,4 +1,4 @@
-const { generalError } = require("./errors");
+const { generalError, notFoundError } = require("./errors");
 
 describe("Given the errors function", () => {
   describe("When invoked with an error without statusCode", () => {
@@ -39,6 +39,18 @@ describe("Given the errors function", () => {
 
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
       expect(res.json).toHaveBeenCalledWith(expectedError);
+    });
+  });
+});
+
+describe("Given the notFoundError", () => {
+  describe("When invoked with the statusCode 404 and the message'Endpoint not found'", () => {
+    test("Then it should call the res status 404 and the message'Endpoint not found'", () => {
+      const next = jest.fn();
+
+      notFoundError(null, null, next);
+
+      expect(next).toHaveBeenCalled();
     });
   });
 });
