@@ -61,7 +61,29 @@ describe("Given the registerUser function", () => {
       expect(mockNext).toHaveBeenCalledWith(expectedError);
     });
   });
-});
+  describe("When it is called with the wrong password", () => {
+    test("then it should have been called with status code 400", async () => {
+      const req = {
+        body: { name: "Inigo", username: "inigo", password: "1234" },
+      };
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: "Wrong user data... please try again!",
+      };
 
-// InigoMontoya
-// $2a$10$pdylXNCZ9k4GgN3naOh84eHYVeoVRQ2IQZay7mV43zM5V.nTvM146
+      const mockNext = jest.fn();
+      User.findOne.mockImplementation(() => false);
+      bcrypt.hash.mockImplementation(() => false);
+
+      await userRegister(req, res, mockNext);
+
+      const expectedError = new Error();
+      expectedError.code = 400;
+      expectedError.customMessage = [
+        "TypeError: Wrong user data... please try again!",
+      ];
+
+      expect(mockNext).toHaveBeenCalled();
+    });
+  });
+});
