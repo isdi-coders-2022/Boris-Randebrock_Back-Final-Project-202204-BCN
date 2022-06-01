@@ -32,6 +32,7 @@
     "express-validation": "^4.1.0",
     "helmet": "^5.1.0",
     "jest": "^28.1.0",
+    "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb-memory-server": "^8.6.0",
     "mongoose": "^6.3.4",
@@ -45,7 +46,8 @@
       "!src/server/initializeServer.js",
       "!src/server/index.js",
       "!src/db/index.js",
-      "!.eslintrc.js"
+      "!.eslintrc.js",
+      "!src/db/models/Song.js"
     ]
   }
 }
