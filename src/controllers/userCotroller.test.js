@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const User = require("../db/models/Users");
+const User = require("../db/models/User");
 const { userRegister } = require("./userControllers");
 
 const mockNewUser = {
@@ -8,7 +8,7 @@ const mockNewUser = {
   password: "1234",
 };
 
-jest.mock("../db/models/Users", () => ({
+jest.mock("../db/models/User", () => ({
   findOne: jest.fn(),
   create: jest.fn(() => mockNewUser),
 }));

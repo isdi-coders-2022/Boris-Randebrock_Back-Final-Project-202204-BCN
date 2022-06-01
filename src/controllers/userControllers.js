@@ -1,10 +1,10 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt");
-const User = require("../db/models/Users");
+const User = require("../db/models/User");
 
 const userRegister = async (req, res, next) => {
   const { name, username, password } = req.body;
-  const user = await User.findOne({});
+  const user = await User.findOne({ username });
 
   if (user) {
     const error = new Error();
