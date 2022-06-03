@@ -1,5 +1,6 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt");
+const jsonwebtoken = require("jsonwebtoken");
 const User = require("../db/models/User");
 
 const userRegister = async (req, res, next) => {
@@ -28,4 +29,37 @@ const userRegister = async (req, res, next) => {
   }
 };
 
-module.exports = { userRegister };
+const userLogin = async (req, res, next) => {
+  const { username, password } = req.body;
+
+  try {
+    const queryFindOne = { username };
+
+    const user = await User.findOne(queryFindOne);
+
+    if (user) {
+      const checkPassword = await bcrypt.compare(password, user.password);
+
+      if (checkPassword) {
+        const userData = {
+          username: user.username,
+          id: user.id,
+        };
+
+        const token = jsonwebtoken.sign(userData, process.env.JWT_Secret);
+
+        res.status(200).json({ token });
+      }
+    } else {
+      const error = new Error();
+      error.statusCode = 401;
+      error.CustomMessage = "Wrong username or password!";
+      next(error);
+      return;
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { userRegister, userLogin };
