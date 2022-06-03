@@ -25,6 +25,6 @@ app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.use("/users", userRouter);
+app.use("/user", userRouter);
 
 module.exports = app;

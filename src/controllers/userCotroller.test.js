@@ -66,6 +66,27 @@ describe("Given userLogin function", () => {
       expect(next).toHaveBeenCalledWith(expectedError);
     });
   });
+
+  describe("When the user does not exist", () => {
+    test("Then it should call next", async () => {
+      const req = {
+        body: {
+          id: 1,
+          username: "wenny",
+          password: "the-Poop",
+        },
+      };
+
+      const expectedError = new Error();
+
+      const next = jest.fn();
+
+      User.findOne = jest.fn().mockRejectedValueOnce(expectedError);
+      await userLogin(req, null, next);
+
+      expect(next).toHaveBeenCalledWith(expectedError);
+    });
+  });
 });
 
 describe("Given the userRegister function", () => {
