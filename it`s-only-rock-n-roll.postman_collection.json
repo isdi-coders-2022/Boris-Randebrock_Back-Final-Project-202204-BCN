@@ -1,73 +1,59 @@
 {
-	"info": {
-		"_postman_id": "7a37bbd9-3950-4a69-9a6b-c44fef5720ec",
-		"name": "it`s-only-rock-n-roll",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "20630934"
-	},
-	"item": [
-		{
-			"name": "userLogin",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{origin}}/user/login",
-					"host": [
-						"{{origin}}"
-					],
-					"path": [
-						"user",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "userRegister",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{origin}}/user/register",
-					"host": [
-						"{{origin}}"
-					],
-					"path": [
-						"user",
-						"register"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "origin",
-			"value": "https://boris-randebrock-back-final-project.onrender.com",
-			"type": "string"
-		}
-	]
+  "info": {
+    "_postman_id": "7a37bbd9-3950-4a69-9a6b-c44fef5720ec",
+    "name": "it`s-only-rock-n-roll",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "20630934"
+  },
+  "item": [
+    {
+      "name": "userLogin",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{origin}}/user/login",
+          "host": ["{{origin}}"],
+          "path": ["user", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "userRegister",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{origin}}/user/register",
+          "host": ["{{origin}}"],
+          "path": ["user", "register"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "origin",
+      "value": "https://boris-randebrock-back-final-project.onrender.com",
+      "type": "string"
+    }
+  ]
 }
