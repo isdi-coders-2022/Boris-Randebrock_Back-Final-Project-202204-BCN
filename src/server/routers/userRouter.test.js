@@ -77,22 +77,4 @@ describe("Given a post 'user/register' endpoint", () => {
       await request(app).post("/user/login").send(testUser).expect(400);
     });
   });
-
-  // describe("When it receives a request with an not yet invented error", () => {
-  //   test("Then it should call the next(error)", async () => {
-  //     const testUser = {
-  //       username: "windy the pooh",
-  //       password: "the-pooh-pooh",
-  //     };
-
-  //     await request(app).post("/user/login").send(testUser).expect(401);
-
-  //     const { token } = await request(app)
-  //       .post("/user/login")
-  //       .send({ username: testUser.username, password: testUser.password })
-  //       .expect(401);
-
-  //     expect(token).toHaveBeenCalled();
-  //   });
-  // });
 });

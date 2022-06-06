@@ -1,10 +1,7 @@
 const express = require("express");
 const { validate } = require("express-validation");
 
-const {
-  userRegister,
-  userLogin,
-} = require("../../controllers/userControllers");
+const { userRegister, userLogin } = require("../../controller/userController");
 
 const {
   credentialsRegisterSchema,
