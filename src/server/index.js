@@ -9,7 +9,6 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    "*",
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:4000",
@@ -24,7 +23,7 @@ const corsOptions = {
   ],
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json());
