@@ -16,4 +16,13 @@ const getSongs = async (req, res, next) => {
   }
 };
 
-module.exports = { getSongs };
+const deleteSong = async (req, res) => {
+  debug(chalk.green("Song delete request received"));
+
+  const { id } = req.params;
+
+  await Song.findOneAndDelete({ id });
+  res.status(200).json({ message: "Song deleted" });
+};
+
+module.exports = { getSongs, deleteSong };

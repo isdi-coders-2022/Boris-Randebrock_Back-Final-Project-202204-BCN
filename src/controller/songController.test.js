@@ -1,5 +1,5 @@
 const song = require("../db/models/Song");
-const { getSongs } = require("./songController");
+const { getSongs, deleteSong } = require("./songController");
 
 describe("Given the getSongs function", () => {
   describe("When the function is called", () => {
@@ -34,6 +34,31 @@ describe("Given the getSongs function", () => {
 
       expect(next).toHaveBeenCalledWith(new Error());
       expect(expectedStatusCode).toBe(500);
+    });
+  });
+});
+
+describe("Given the deleteSong function", () => {
+  describe("When the function is called", () => {
+    test("Then the function should delete a song", async () => {
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      };
+
+      const req = {
+        params: { id: "1" },
+      };
+
+      const next = jest.fn();
+      song.findOneAndDelete = jest.fn().mockResolvedValue(req);
+
+      const expectedStatusCode = 200;
+
+      await deleteSong(req, res, next);
+
+      expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
+      expect(res.json).toHaveBeenCalledWith({ message: "Song deleted" });
     });
   });
 });
