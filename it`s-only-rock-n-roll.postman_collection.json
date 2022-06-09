@@ -33,6 +33,19 @@
       "response": []
     },
     {
+      "name": "delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{origin}}/songs",
+          "host": ["{{origin}}"],
+          "path": ["songs"]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "userRegister",
       "request": {
         "method": "POST",
