@@ -35,3 +35,16 @@ describe("Given a get /songs endpoint", () => {
     });
   });
 });
+
+describe("Given a delete /songs/:id endpoint", () => {
+  describe("When invoked", () => {
+    test("Then the song should be deleted", async () => {
+      const { body } = await request(app)
+        .delete("/songs/1")
+        .send(mockSongs)
+        .expect(200);
+
+      expect(body).toEqual({ message: "Song deleted" });
+    });
+  });
+});
