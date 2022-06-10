@@ -2,6 +2,7 @@ require("dotenv").config();
 const chalk = require("chalk");
 const debug = require("debug")("src:controller:songController");
 const Song = require("../db/models/Song");
+const CustomError = require("../utils/customError");
 
 const getSongs = async (req, res, next) => {
   try {
@@ -24,4 +25,19 @@ const deleteSong = async (req, res) => {
   res.status(200).json({ message: "Song deleted" });
 };
 
-module.exports = { getSongs, deleteSong };
+const getSongById = async (req, res, next) => {
+  const { id: currentId } = req.params;
+
+  try {
+    const song = await Song.findById(currentId);
+    if (song) {
+      res.status(200).json({ song });
+    } else {
+      next(CustomError(404, "Song not found"));
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getSongs, deleteSong, getSongById };
