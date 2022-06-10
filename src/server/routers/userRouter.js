@@ -3,14 +3,11 @@ const { validate } = require("express-validation");
 
 const { userRegister, userLogin } = require("../../controller/userController");
 
-const {
-  credentialsRegisterSchema,
-  credentialsLoginSchema,
-} = require("../schemas/userCredentials");
+const { credentialsRegisterSchema } = require("../schemas/userCredentials");
 
 const userRouter = express.Router();
 
 userRouter.post("/register", validate(credentialsRegisterSchema), userRegister);
-userRouter.post("/login", validate(credentialsLoginSchema), userLogin);
+userRouter.post("/login", userLogin);
 
 module.exports = userRouter;

@@ -70,11 +70,12 @@ describe("Given a post 'user/register' endpoint", () => {
       await request(app).post("/user/register").send(testUser).expect(201);
     });
   });
+
   describe("When it receives a request with an invalid user", () => {
     test("Then it should respond with status 400 ans an error message", async () => {
       const newerror = new Error();
       const testUser = { newerror };
-      await request(app).post("/user/login").send(testUser).expect(400);
+      await request(app).post("/user/login").send(testUser).expect(401);
     });
   });
 });
