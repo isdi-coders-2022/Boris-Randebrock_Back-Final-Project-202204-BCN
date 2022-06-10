@@ -39,8 +39,9 @@ describe("Given a get /songs endpoint", () => {
 describe("Given a delete /songs/:id endpoint", () => {
   describe("When invoked", () => {
     test("Then the song should be deleted", async () => {
+      Song.findByIdAndDelete = jest.fn().mockResolvedValueOnce({});
       const { body } = await request(app)
-        .delete("/songs/1")
+        .delete("/songs/:_id")
         .send(mockSongs)
         .expect(200);
 
