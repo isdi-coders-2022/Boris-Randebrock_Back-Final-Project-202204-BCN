@@ -49,3 +49,18 @@ describe("Given a delete /songs/:id endpoint", () => {
     });
   });
 });
+
+describe("Given a get /songs/:id endpoint", () => {
+  describe("When invoked", () => {
+    test("Then the song should be returned", async () => {
+      Song.findById = jest.fn().mockResolvedValueOnce({});
+
+      const { body } = await request(app)
+        .get("/songs/:_id")
+        .send(mockSongs)
+        .expect(200);
+
+      expect(body).toEqual(body);
+    });
+  });
+});
