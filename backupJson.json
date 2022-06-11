@@ -7,7 +7,7 @@
     "releaseDate": "4/11/1970",
     "description": "https://en.wikipedia.org/wiki/The_Man_Who_Sold_the_World_(album)",
     "documents": [
-      "lyrics",
+      "jhvjn",
       "guitarTabs",
       "piano",
       "drums",
@@ -24,6 +24,24 @@
     "songTitle": "i'm still alive ",
     "releaseDate": "4/11/1970",
     "description": "https://en.wikipedia.org/wiki/The_Man_Who_Sold_the_World_(album)",
+    "documents": [
+      "lyrics",
+      "guitarTabs",
+      "piano",
+      "drums",
+      "saxophone",
+      "trumpets",
+      ""
+    ]
+  },
+
+  {
+    "_id": { "$oid": "62a467ec3ad0a19e0e53cf02" },
+    "artist": "The Beatles",
+    "youtubeVideo": "https://www.youtube.com/watch?v=rp7dMLeSTT0",
+    "songTitle": "while my guitar gently weeps",
+    "releaseDate": "22/11/1968",
+    "description": "https://en.wikipedia.org/wiki/While_My_Guitar_Gently_Weeps",
     "documents": [
       "lyrics",
       "guitarTabs",
