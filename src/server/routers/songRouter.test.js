@@ -64,3 +64,20 @@ describe("Given a get /songs/:id endpoint", () => {
     });
   });
 });
+
+describe("Given a post /songs endpoint", () => {
+  describe("When invoked", () => {
+    test("Then the song should be created", async () => {
+      Song.create = jest.fn().mockResolvedValueOnce({});
+
+      const { body } = await request(app)
+        .post("/songs")
+        .send(mockSongs)
+        .expect(201);
+
+      expect(body).toEqual({ message: "Song created" });
+
+      expect(Song.create).toHaveBeenCalledWith(mockSongs);
+    });
+  });
+});
