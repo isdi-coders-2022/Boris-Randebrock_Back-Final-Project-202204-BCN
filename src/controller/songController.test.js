@@ -148,7 +148,7 @@ describe("Given the createSong function", () => {
       await createSong(req, res, next);
 
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
-      expect(res.json).toHaveBeenCalledWith({ song: req });
+      expect(res.json).toHaveBeenCalledWith({ message: "Song created" });
     });
   });
   describe("When the function is called and there is an error", () => {
