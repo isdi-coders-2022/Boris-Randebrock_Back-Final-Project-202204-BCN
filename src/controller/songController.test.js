@@ -1,5 +1,11 @@
 const song = require("../db/models/Song");
-const { getSongs, deleteSong, getSongById } = require("./songController");
+const { mockSong } = require("../mocks/mocksSongs");
+const {
+  getSongs,
+  deleteSong,
+  getSongById,
+  createSong,
+} = require("./songController");
 
 describe("Given the getSongs function", () => {
   describe("When the function is called", () => {
@@ -118,6 +124,42 @@ describe("Given the getSongById function", () => {
       const next = jest.fn();
 
       await getSongById(req, res, next);
+
+      expect(next).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given the createSong function", () => {
+  describe("When the function is called", () => {
+    const req = {
+      body: mockSong,
+    };
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    };
+    test("Then the function should create a song", async () => {
+      const next = jest.fn();
+      song.create = jest.fn().mockResolvedValue(req);
+
+      const expectedStatusCode = 201;
+
+      await createSong(req, res, next);
+
+      expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
+      expect(res.json).toHaveBeenCalledWith({ song: req });
+    });
+  });
+  describe("When the function is called and there is an error", () => {
+    test("Then the function should return an error", async () => {
+      const req = {
+        body: mockSong,
+      };
+      const next = jest.fn();
+      song.create = jest.fn().mockRejectedValue(Error);
+
+      await createSong(req, null, next);
 
       expect(next).toHaveBeenCalled();
     });

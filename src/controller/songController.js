@@ -40,4 +40,20 @@ const getSongById = async (req, res, next) => {
   }
 };
 
-module.exports = { getSongs, deleteSong, getSongById };
+const createSong = async (req, res, next) => {
+  debug(chalk.greenBright("Song create request received"));
+
+  try {
+    const receivedSong = req.body;
+    const song = await Song.create(receivedSong);
+    if (song) {
+      res.status(201).json({ song });
+    } else {
+      next(CustomError(404, "failed to create song"));
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getSongs, deleteSong, getSongById, createSong };
