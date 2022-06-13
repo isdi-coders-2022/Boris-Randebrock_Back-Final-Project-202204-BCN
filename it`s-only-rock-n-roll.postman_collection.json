@@ -20,6 +20,28 @@
       "response": []
     },
     {
+      "name": "createSong",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\n    \"_id\": { \"$oid\": \"62a467ec3ad0a19e0e53cf02\" },\n    \"artist\": \"The Beatles\",\n    \"youtubeVideo\": \"https://www.youtube.com/watch?v=rp7dMLeSTT0\",\n    \"songTitle\": \"while my guitar gently weeps\",\n    \"releaseDate\": \"22/11/1968\",\n    \"description\": \"https://en.wikipedia.org/wiki/While_My_Guitar_Gently_Weeps\",\n    \"documents\": [\n      \"lyrics\",\n      \"guitarTabs\",\n      \"piano\",\n      \"drums\",\n      \"saxophone\",\n      \"trumpets\",\n      \"\"\n    ]\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{origin}}/songs",
+          "host": ["{{origin}}"],
+          "path": ["songs"]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "loadSongs",
       "request": {
         "method": "GET",
