@@ -45,12 +45,14 @@ const createSong = async (req, res, next) => {
 
   try {
     const receivedSong = req.body;
-    const song = await Song.create(receivedSong);
-    if (song) {
-      res.status(201).json({ message: "Song created" });
-    } else {
-      next(CustomError(404, "failed to create song"));
-    }
+    // const song =
+    await Song.create(receivedSong);
+    // if (song) {
+    res.status(201).json({ message: "Song created" });
+    // }
+    // else {
+    //   next(CustomError(404, "failed to create song"));
+    // }
   } catch (error) {
     next(error);
   }

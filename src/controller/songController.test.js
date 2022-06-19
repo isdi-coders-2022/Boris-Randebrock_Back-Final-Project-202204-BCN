@@ -1,5 +1,6 @@
 const song = require("../db/models/Song");
 const { mockSong } = require("../mocks/mocksSongs");
+// const customError = require("../utils/customError");
 const {
   getSongs,
   deleteSong,
@@ -164,4 +165,16 @@ describe("Given the createSong function", () => {
       expect(next).toHaveBeenCalled();
     });
   });
+});
+
+test("then the function should return an error", async () => {
+  const req = {
+    body: mockSong,
+  };
+  const next = jest.fn();
+  song.create = jest.fn().mockRejectedValue(Error);
+
+  await createSong(req, null, next);
+
+  expect(next).toHaveBeenCalledWith(Error);
 });
